@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Super DevOps Game App</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    color:white;
+}
+
+/* HEADER */
+.header{
+    background:#111827;
+    padding:15px;
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+}
+
+/* DASHBOARD */
+.dashboard{
+    display:flex;
+    justify-content:space-around;
+    padding:20px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:#1f2937;
+    padding:20px;
+    margin:10px;
+    border-radius:12px;
+    width:200px;
+    text-align:center;
+    box-shadow:0 0 10px rgba(0,0,0,0.5);
+}
+
+.number{
+    font-size:30px;
+    color:#38bdf8;
+}
+
+/* GAME AREA */
+.game{
+    text-align:center;
+    margin-top:40px;
+}
+
+button{
+    padding:15px 30px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:#22c55e;
+    color:white;
+}
+
+button:hover{
+    background:#16a34a;
+}
+
+.reset{
+    background:#ef4444;
+}
+
+.reset:hover{
+    background:#dc2626;
+}
+
+.score{
+    font-size:40px;
+    margin:20px;
+    color:#facc15;
+}
+
+/* FOOTER */
+.footer{
+    margin-top:40px;
+    text-align:center;
+    padding:10px;
+    background:#111827;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+🚀 Super DevOps Web Game App
+</div>
+
+<!-- DASHBOARD -->
+<div class="dashboard">
+    <div class="card">
+        <h3>Users</h3>
+        <div class="number" id="users">120</div>
+    </div>
+
+    <div class="card">
+        <h3>Servers</h3>
+        <div class="number" id="servers">5</div>
+    </div>
+
+    <div class="card">
+        <h3>CPU Load</h3>
+        <div class="number" id="cpu">35%</div>
+    </div>
+
+    <div class="card">
+        <h3>Status</h3>
+        <div class="number">🟢</div>
+    </div>
+</div>
+
+<!-- GAME -->
+<div class="game">
+    <h2>🎮 Click Game</h2>
+    <div class="score" id="score">0</div>
+
+    <button onclick="addScore()">CLICK ME</button>
+    <button class="reset" onclick="resetGame()">RESET</button>
+</div>
+
+<div class="footer">
+Made for DevOps Practice 🚀
+</div>
+
+<script>
+
+let score = 0;
+
+function addScore(){
+    score++;
+    document.getElementById("score").innerHTML = score;
+}
+
+function resetGame(){
+    score = 0;
+    document.getElementById("score").innerHTML = score;
+}
+
+/* LIVE DASHBOARD SIMULATION */
+setInterval(() => {
+    document.getElementById("cpu").innerHTML =
+        Math.floor(Math.random()*70 + 10) + "%";
+
+    document.getElementById("users").innerHTML =
+        Math.floor(Math.random()*200 + 50);
+
+}, 3000);
+
+</script>
+
+</body>
+</html>
